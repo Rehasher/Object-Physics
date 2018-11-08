@@ -20,3 +20,23 @@ __What's working__
 __What's not tested__
 1. Object to cylinder collision
 2. Object to player collision
+3. 3D objects
+
+__Methods__
+```pawn
+forward PHY_OnObjectUpdate(handleid);
+forward PHY_OnObjectCollideWithObject(handleid_a, handleid_b);
+forward PHY_OnObjectCollideWithZBound(handleid, lowhigh); // low bound = 0, high bound = 1
+forward PHY_OnObjectCollideWithWall(handleid, wallid);
+forward PHY_OnObjectCollideWithCylinder(handleid, cylinderid);
+forward PHY_OnObjectCollideWithPlayer(handleid, playerid);
+```
+
+__Tips__
+
+To get the object id of a handle: `PHY_GetHandleObject(handleid)`
+
+To create a handle, use `PHY_InitObject`:
+```pawn
+new handleid = PHY_InitObject( objectid, 3003, _, _, PHY_MODE_2D );
+```
